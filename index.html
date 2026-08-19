@@ -6,24 +6,26 @@
 
   <title>Smart Opportunity Hub | Jobs, Scholarships & Digital Opportunities</title>
 
-  <meta name="description" content="Discover remote jobs, scholarships, online opportunities and digital skills resources at Smart Opportunity Hub.">
-
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
+      font-family: Arial, sans-serif;
       background: #f5f7fb;
-      color: #1f2937;
+      color: #172033;
       line-height: 1.6;
     }
 
     header {
-      background: #0f172a;
+      background: #111827;
       color: white;
       padding: 18px 6%;
       display: flex;
@@ -31,68 +33,51 @@
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 100;
     }
 
     .logo {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: bold;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 20px;
-      font-size: 15px;
+      margin-left: 18px;
+      font-size: 14px;
     }
 
     nav a:hover {
-      color: #38bdf8;
+      text-decoration: underline;
     }
 
     .hero {
-      background: linear-gradient(135deg, #0f172a, #1d4ed8);
-      color: white;
-      padding: 90px 6%;
+      padding: 80px 6%;
       text-align: center;
+      background: linear-gradient(135deg, #111827, #2563eb);
+      color: white;
     }
 
     .hero h1 {
-      font-size: 45px;
-      margin-bottom: 20px;
+      font-size: 42px;
+      margin-bottom: 15px;
     }
 
     .hero p {
-      max-width: 700px;
-      margin: auto;
+      max-width: 650px;
+      margin: 0 auto 25px;
       font-size: 18px;
-      opacity: 0.95;
     }
 
-    .search-box {
-      margin: 30px auto 0;
-      max-width: 600px;
-      display: flex;
+    .btn {
+      display: inline-block;
       background: white;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .search-box input {
-      flex: 1;
-      padding: 16px;
-      border: none;
-      outline: none;
-      font-size: 16px;
-    }
-
-    .search-box button {
-      padding: 16px 25px;
-      border: none;
-      background: #38bdf8;
-      color: #0f172a;
+      color: #2563eb;
+      padding: 13px 24px;
+      border-radius: 8px;
+      text-decoration: none;
       font-weight: bold;
-      cursor: pointer;
     }
 
     section {
@@ -105,92 +90,64 @@
     }
 
     .section-title h2 {
-      font-size: 32px;
+      font-size: 30px;
       margin-bottom: 8px;
     }
 
-    .section-title p {
-      color: #64748b;
-    }
-
-    .categories {
+    .categories,
+    .opportunities {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 20px;
     }
 
-    .card {
+    .card,
+    .opportunity {
       background: white;
-      padding: 30px 20px;
-      border-radius: 15px;
-      text-align: center;
+      padding: 25px;
+      border-radius: 12px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-      transition: 0.3s;
+    }
+
+    .card {
+      cursor: pointer;
+      transition: transform 0.2s;
     }
 
     .card:hover {
       transform: translateY(-5px);
     }
 
-    .card .icon {
-      font-size: 40px;
-      margin-bottom: 15px;
+    .icon {
+      font-size: 35px;
+      margin-bottom: 12px;
     }
 
-    .card h3 {
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #64748b;
-      font-size: 14px;
-    }
-
-    .opportunities {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+    .card h3,
+    .opportunity h3 {
+      margin-bottom: 8px;
     }
 
     .opportunity {
-      background: white;
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+      border-left: 5px solid #2563eb;
     }
 
     .tag {
       display: inline-block;
-      background: #dbeafe;
-      color: #1d4ed8;
+      background: #e0ecff;
+      color: #2563eb;
       padding: 5px 10px;
       border-radius: 20px;
       font-size: 12px;
       margin-bottom: 12px;
     }
 
-    .opportunity h3 {
-      margin-bottom: 10px;
-    }
-
-    .opportunity p {
-      color: #64748b;
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-
-    .apply-btn {
+    .opportunity a {
       display: inline-block;
-      background: #2563eb;
-      color: white;
+      margin-top: 15px;
+      color: #2563eb;
+      font-weight: bold;
       text-decoration: none;
-      padding: 10px 18px;
-      border-radius: 7px;
-      font-size: 14px;
-    }
-
-    .apply-btn:hover {
-      background: #1d4ed8;
     }
 
     .about {
@@ -199,112 +156,29 @@
     }
 
     .about p {
-      max-width: 750px;
+      max-width: 700px;
       margin: auto;
-      color: #64748b;
-    }
-
-    .newsletter {
-      background: #1e3a8a;
-      color: white;
-      text-align: center;
-    }
-
-    .newsletter p {
-      margin: 10px auto 25px;
-      max-width: 600px;
-    }
-
-    .newsletter input {
-      padding: 14px;
-      width: 280px;
-      border: none;
-      border-radius: 6px;
-      margin-right: 5px;
-    }
-
-    .newsletter button {
-      padding: 14px 20px;
-      border: none;
-      border-radius: 6px;
-      background: #38bdf8;
-      cursor: pointer;
-      font-weight: bold;
     }
 
     footer {
-      background: #0f172a;
+      background: #111827;
       color: white;
-      padding: 30px 6%;
       text-align: center;
+      padding: 30px;
     }
 
-    footer p {
-      color: #94a3b8;
-      font-size: 14px;
-    }
-
-    .social-links {
-      margin-bottom: 15px;
-    }
-
-    .social-links a {
-      color: white;
-      margin: 0 8px;
-      text-decoration: none;
-    }
-
-    @media (max-width: 900px) {
-      .categories {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .opportunities {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 35px;
-      }
-    }
-
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       header {
         flex-direction: column;
         gap: 12px;
       }
 
       nav a {
-        margin: 0 7px;
-      }
-
-      .categories {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding: 65px 5%;
+        margin: 0 6px;
       }
 
       .hero h1 {
-        font-size: 30px;
-      }
-
-      .search-box {
-        flex-direction: column;
-      }
-
-      .search-box button {
-        width: 100%;
-      }
-
-      .newsletter input {
-        width: 100%;
-        margin-bottom: 10px;
-      }
-
-      .newsletter button {
-        width: 100%;
+        font-size: 32px;
       }
     }
   </style>
@@ -312,241 +186,162 @@
 
 <body>
 
-<header>
-  <div class="logo">🚀 Smart Opportunity Hub</div>
+  <header>
+    <div class="logo">Smart Opportunity Hub</div>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#categories">Categories</a>
-    <a href="#opportunities">Opportunities</a>
-    <a href="#about">About</a>
-  </nav>
-</header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#categories">Opportunities</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
 
+  <section class="hero" id="home">
+    <h1>Discover Your Next Opportunity</h1>
 
-<section class="hero" id="home">
+    <p>
+      Find remote jobs, scholarships, online opportunities and digital skills
+      all in one place.
+    </p>
 
-  <h1>Discover Your Next Opportunity</h1>
+    <a class="btn" href="#categories">Explore Opportunities</a>
+  </section>
 
-  <p>
-    Find remote jobs, scholarships, online opportunities and digital
-    skills resources — all in one place.
-  </p>
+  <section id="categories">
 
-  <div class="search-box">
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="Search opportunities..."
-      onkeyup="searchOpportunities()"
-    >
-
-    <button onclick="searchOpportunities()">
-      Search
-    </button>
-  </div>
-
-</section>
-
-
-<section id="categories">
-
-  <div class="section-title">
-    <h2>Explore Opportunities</h2>
-    <p>Choose a category and discover what's available.</p>
-  </div>
-
-  <div class="categories">
-
-    <div class="card">
-      <div class="icon">💼</div>
-      <h3>Remote Jobs</h3>
-      <p>Discover remote and work-from-home opportunities.</p>
+    <div class="section-title">
+      <h2>Explore Opportunities</h2>
+      <p>Choose a category and discover what's available.</p>
     </div>
 
-    <div class="card">
-      <div class="icon">🎓</div>
-      <h3>Scholarships</h3>
-      <p>Find scholarships and educational opportunities.</p>
-    </div>
+    <div class="categories">
 
-    <div class="card">
-      <div class="icon">🌍</div>
-      <h3>Online Opportunities</h3>
-      <p>Explore online programs, competitions and opportunities.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🤖</div>
-      <h3>AI & Digital Skills</h3>
-      <p>Learn useful digital and artificial intelligence skills.</p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<section id="opportunities">
-
-  <div class="section-title">
-    <h2>Featured Opportunities</h2>
-    <p>Some opportunities you can explore.</p>
-  </div>
-
-  <div class="opportunities" id="opportunityList">
-
-    <div class="opportunity">
-      <span class="tag">Remote Job</span>
-
-      <h3>Remote Work Opportunities</h3>
-
-      <p>
-        Explore legitimate remote work opportunities and build
-        your online career.
-      </p>
-
-      <a href="#" class="apply-btn">
-        View Opportunity
+      <a class="card" href="#remote-jobs" style="text-decoration:none;color:inherit;">
+        <div class="icon">💼</div>
+        <h3>Remote Jobs</h3>
+        <p>Discover remote and work-from-home opportunities.</p>
       </a>
-    </div>
 
-
-    <div class="opportunity">
-      <span class="tag">Scholarship</span>
-
-      <h3>Scholarship Opportunities</h3>
-
-      <p>
-        Discover educational funding opportunities for students
-        around the world.
-      </p>
-
-      <a href="#" class="apply-btn">
-        View Opportunity
+      <a class="card" href="#scholarships" style="text-decoration:none;color:inherit;">
+        <div class="icon">🎓</div>
+        <h3>Scholarships</h3>
+        <p>Find scholarships and educational opportunities.</p>
       </a>
-    </div>
 
-
-    <div class="opportunity">
-      <span class="tag">Digital Skills</span>
-
-      <h3>Learn AI & Digital Skills</h3>
-
-      <p>
-        Improve your digital skills and learn how artificial
-        intelligence can help your career.
-      </p>
-
-      <a href="#" class="apply-btn">
-        Learn More
+      <a class="card" href="#online-opportunities" style="text-decoration:none;color:inherit;">
+        <div class="icon">🌍</div>
+        <h3>Online Opportunities</h3>
+        <p>Explore online programs, competitions and opportunities.</p>
       </a>
+
+      <a class="card" href="#digital-skills" style="text-decoration:none;color:inherit;">
+        <div class="icon">🤖</div>
+        <h3>AI & Digital Skills</h3>
+        <p>Learn useful digital and artificial intelligence skills.</p>
+      </a>
+
+    </div>
+  </section>
+
+  <section id="remote-jobs">
+
+    <div class="section-title">
+      <h2>💼 Remote Jobs</h2>
+      <p>Explore remote work opportunities.</p>
     </div>
 
-  </div>
+    <div class="opportunities">
 
-</section>
+      <div class="opportunity">
+        <span class="tag">Remote Job</span>
+        <h3>Remote Work Opportunities</h3>
+        <p>Explore work-from-home opportunities and discover new career possibilities.</p>
+        <a href="https://www.linkedin.com/jobs/" target="_blank">Explore Jobs →</a>
+      </div>
 
+      <div class="opportunity">
+        <span class="tag">Freelancing</span>
+        <h3>Freelance Opportunities</h3>
+        <p>Find projects where you can use your digital skills and work remotely.</p>
+        <a href="https://www.upwork.com/" target="_blank">Explore Freelancing →</a>
+      </div>
 
-<section class="about" id="about">
+    </div>
+  </section>
 
-  <div class="section-title">
-    <h2>About Smart Opportunity Hub</h2>
-  </div>
+  <section id="scholarships">
 
-  <p>
-    Smart Opportunity Hub is designed to help people discover
-    useful jobs, scholarships, online opportunities and digital
-    skills resources. Our goal is to make valuable opportunities
-    easier to find.
-  </p>
+    <div class="section-title">
+      <h2>🎓 Scholarships</h2>
+      <p>Discover educational funding opportunities.</p>
+    </div>
 
-</section>
+    <div class="opportunities">
 
+      <div class="opportunity">
+        <span class="tag">Education</span>
+        <h3>Scholarship Opportunities</h3>
+        <p>Search for scholarships and funding opportunities for your education.</p>
+        <a href="https://www.scholarships.com/" target="_blank">Find Scholarships →</a>
+      </div>
 
-<section class="newsletter">
+    </div>
+  </section>
 
-  <h2>Stay Updated</h2>
+  <section id="online-opportunities">
 
-  <p>
-    Get notified when new opportunities are added.
-  </p>
+    <div class="section-title">
+      <h2>🌍 Online Opportunities</h2>
+      <p>Explore programs, competitions and other online opportunities.</p>
+    </div>
 
-  <form onsubmit="subscribe(event)">
+    <div class="opportunities">
 
-    <input
-      type="email"
-      id="email"
-      placeholder="Enter your email"
-      required
-    >
+      <div class="opportunity">
+        <span class="tag">Online</span>
+        <h3>Online Programs</h3>
+        <p>Discover useful online programs and opportunities to grow your experience.</p>
+        <a href="https://www.coursera.org/" target="_blank">Explore Programs →</a>
+      </div>
 
-    <button type="submit">
-      Subscribe
-    </button>
+    </div>
+  </section>
 
-  </form>
+  <section id="digital-skills">
 
-</section>
+    <div class="section-title">
+      <h2>🤖 AI & Digital Skills</h2>
+      <p>Build skills that can help you in the digital economy.</p>
+    </div>
 
+    <div class="opportunities">
 
-<footer>
+      <div class="opportunity">
+        <span class="tag">Digital Skills</span>
+        <h3>Learn Digital Skills</h3>
+        <p>Develop useful technology, business and digital skills online.</p>
+        <a href="https://grow.google/" target="_blank">Start Learning →</a>
+      </div>
 
-  <div class="social-links">
-    <a href="#">Facebook</a>
-    <a href="#">Instagram</a>
-    <a href="#">X</a>
-    <a href="#">LinkedIn</a>
-  </div>
+    </div>
+  </section>
 
-  <p>
-    © 2026 Smart Opportunity Hub. All rights reserved.
-  </p>
+  <section class="about" id="about">
 
-</footer>
+    <div class="section-title">
+      <h2>About Smart Opportunity Hub</h2>
+    </div>
 
+    <p>
+      Smart Opportunity Hub helps people discover jobs, scholarships,
+      online programs and digital learning opportunities in one simple place.
+    </p>
 
-<script>
+  </section>
 
-function searchOpportunities() {
-
-  const input =
-    document.getElementById("searchInput")
-      .value.toLowerCase();
-
-  const cards =
-    document.querySelectorAll(".opportunity");
-
-  cards.forEach(function(card) {
-
-    const text =
-      card.innerText.toLowerCase();
-
-    if (text.includes(input)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-
-  });
-
-}
-
-
-function subscribe(event) {
-
-  event.preventDefault();
-
-  const email =
-    document.getElementById("email").value;
-
-  alert(
-    "Thanks for subscribing! We will send updates to " + email
-  );
-
-}
-
-</script>
+  <footer>
+    <p>© 2026 Smart Opportunity Hub. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
