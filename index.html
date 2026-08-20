@@ -1584,22 +1584,16 @@ footer {
 
 function filterCategory(category, button) {
 
-  const cards =
-    document.querySelectorAll(".opportunity");
-
-  const filters =
-    document.querySelectorAll(".filter");
-
+  const cards = document.querySelectorAll(".opportunity");
+  const filters = document.querySelectorAll(".filter");
 
   filters.forEach(function(item) {
-
     item.classList.remove("active");
-
   });
 
-
-  button.classList.add("active");
-
+  if (button) {
+    button.classList.add("active");
+  }
 
   cards.forEach(function(card) {
 
@@ -1607,35 +1601,26 @@ function filterCategory(category, button) {
       category === "all" ||
       card.dataset.category === category
     ) {
-
       card.style.display = "block";
-
-    }
-
-    else {
-
+    } else {
       card.style.display = "none";
-
     }
 
   });
 
+  document.getElementById("searchInput").value = "";
 }
-
 
 
 function searchOpportunities() {
 
-  const search =
-    document
+  const search = document
     .getElementById("searchInput")
     .value
-    .toLowerCase();
+    .toLowerCase()
+    .trim();
 
-
-  const cards =
-    document.querySelectorAll(".opportunity");
-
+  const cards = document.querySelectorAll(".opportunity");
 
   cards.forEach(function(card) {
 
@@ -1645,25 +1630,108 @@ function searchOpportunities() {
     const content =
       card.innerText.toLowerCase();
 
-
     if (
       title.includes(search) ||
       content.includes(search)
     ) {
-
       card.style.display = "block";
-
-    }
-
-    else {
-
+    } else {
       card.style.display = "none";
-
     }
 
   });
 
 }
+
+
+/* Make category cards work */
+
+document.querySelectorAll(".category").forEach(function(card) {
+
+  card.addEventListener("click", function(event) {
+
+    event.preventDefault();
+
+    const text = card.innerText.toLowerCase();
+
+    let category = "all";
+
+    if (text.includes("remote")) {
+      category = "remote";
+    }
+    else if (text.includes("scholarship")) {
+      category = "scholarship";
+    }
+    else if (text.includes("digital")) {
+      category = "digital";
+    }
+    else if (text.includes("jobs")) {
+      category = "job";
+    }
+
+    const filterButton =
+      document.querySelector(
+        '.filter[onclick*="' + category + '"]'
+      );
+
+    filterCategory(category, filterButton);
+
+    document
+      .getElementById("opportunities")
+      .scrollIntoView({
+        behavior: "smooth"
+      });
+
+  });
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </script>
